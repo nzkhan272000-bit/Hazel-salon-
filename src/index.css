@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Playfair Display", serif;
+  --font-sans: "Poppins", sans-serif;
+  
+  --color-nude: #f5f0ed;
+  --color-blush: #fce4ec;
+  --color-rosegold: #b76e79;
+  --color-cream: #fffaf5;
+  --color-warm-brown: #4a3728;
+}
+
+@layer base {
+  body {
+    @apply font-sans bg-cream text-warm-brown selection:bg-rosegold/30;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-semibold;
+  }
+}
+
+.glass {
+  @apply bg-white/40 backdrop-blur-md border border-white/20 shadow-sm;
+}
+
+.soft-shadow {
+  box-shadow: 0 10px 40px -10px rgba(74, 55, 40, 0.1);
+}
+
+.glow-shadow {
+  box-shadow: 0 0 30px rgba(183, 110, 121, 0.15);
+}
+
+.hover-lift {
+  @apply transition-transform duration-300 hover:-translate-y-2;
+}
+
+.btn-primary {
+  @apply px-8 py-3 bg-rosegold text-white rounded-full font-medium transition-all duration-300 hover:bg-rosegold/90 hover:scale-105 active:scale-95 shadow-md hover:shadow-lg flex items-center justify-center gap-2;
+}
+
+.btn-secondary {
+  @apply px-8 py-3 border-2 border-rosegold text-rosegold rounded-full font-medium transition-all duration-300 hover:bg-rosegold hover:text-white hover:scale-105 active:scale-95 flex items-center justify-center gap-2;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes slow-zoom {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.1); }
+}
+
+.animate-slow-zoom {
+  animation: slow-zoom 20s ease-in-out infinite alternate;
+}
